@@ -1,3 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+  :root {
+    --color-text: #22243b;
+  }
+} */
+
+* {
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --color-bg-dark: #ffffff;
+  --color-bg: #fdfffd;
+  --color-grey: #d1d1d1;
+  --color-text: #22243b;
+  --color-darkBtn: #062f79;
+  --color-accent: #f16e03;
+  --color-white: white;
+  --color-scrollbar: #aaa7a7;
+}
+
+html.dark {
+  --color-bg-dark: #1a1c35;
+  --color-bg: #22243b;
+  --color-grey: #4e4e4e;
+  --color-text: #fdfffd;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,6 +43,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* width: 100vw;
+  height: 100vh; */
+  background-color: var(--color-bg-dark);
+
+  @apply flex flex-col items-center;
+  /* @apply bg-zinc-900 text-gray-50; */
+}
+
+#root {
+  /* width: 100vw;
+  height: 100vh; */
+  @apply w-full max-w-screen-2xl;
 }
 
 code {
