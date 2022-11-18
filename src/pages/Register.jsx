@@ -1,24 +1,42 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../components/Register.module.css";
+import { auth } from "../api/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
-export default function Login() {
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-    password_confirm: "",
-    name: "",
-    belong: "",
-  });
+export default function Register() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("　");
+
+  const register = async () => {
+    try {
+      setErrorMsg("　");
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+      setEmail("");
+      setPassword("");
+      console.log(user);
+    } catch (err) {
+      //console.log(err.code);
+      switch (err.code) {
+        case "auth/weak-password":
+          setErrorMsg("비밀번호는 6자리 이상이어야 합니다");
+          break;
+        case "auth/invalid-email":
+          setErrorMsg("잘못된 이메일 주소입니다");
+          break;
+        case "auth/email-already-in-use":
+          setErrorMsg("이미 가입되어 있는 계정입니다");
+          break;
+        default:
+          setErrorMsg("다시 입력하세요");
+      }
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    console.log();
   };
 
   return (
@@ -29,50 +47,27 @@ export default function Login() {
       <div className={styles.control_box}>
         <h1 className={styles.title1}>pknu</h1>
         <h1 className={styles.title2}>live-coaching</h1>
-        <form className={styles.register_form}>
+        <form className={styles.register_form} onSubmit={handleSubmit}>
           <input
             className={styles.email}
             type="email"
             placeholder="Email"
             name="email"
-            value={form.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             className={styles.password}
             type="password"
             placeholder="Password"
             name="password"
-            value={form.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <input
-            className={styles.password_confirm}
-            type="password"
-            placeholder="Password confirm"
-            name="password_confirm"
-            value={form.password_confirm}
-            onChange={handleChange}
-          />
-          <input
-            className={styles.name}
-            type="text"
-            placeholder="Full name"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-          />
-          <input
-            className={styles.belong}
-            type="text"
-            placeholder="Belong"
-            name="belong"
-            value={form.belong}
-            onChange={handleChange}
-          />
-          <button className={styles.register_btn} onSubmit={handleSubmit}>
-            LOGIN
+          <button className={styles.register_btn} onClick={register}>
+            REGISTER
           </button>
+          <span>{errorMsg}</span>
         </form>
         <div className={styles.login_comment}>
           <span>Already have an account? </span>
