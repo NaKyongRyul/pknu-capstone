@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../components/Register.module.css";
 
-export default function Login() {
+export default function Register() {
   const [form, setForm] = useState({
     email: "",
     password: "",

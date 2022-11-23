@@ -1,0 +1,37 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "../components/RoomEnter.module.css";
+
+export default function RoomEnter() {
+  const [title, setTitle] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(title, password);
+  };
+
+  return (
+    <div className={styles.roomEnter_page}>
+      <div className={styles.img}>
+        <img src="img/whale.jpeg" alt="ddd" />
+      </div>
+      <form className={styles.roomInfo_form} onSubmit={handleSubmit}>
+        <label htmlFor="roomTitle">방 이름</label>
+        <input
+          type="text"
+          name="roomTitle"
+          onChange={(e) => setTitle(e.target.value)}
+        ></input>
+        <label htmlFor="roomNum">방 비밀번호</label>
+        <input
+          type="password"
+          name="roomNum"
+          onChange={(e) => setPassword(e.target.value)}
+        ></input>
+        <button className={styles.enter_btn} type="submit">
+          입장하기
+        </button>
+      </form>
+    </div>
+  );
+}

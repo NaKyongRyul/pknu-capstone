@@ -1,0 +1,60 @@
+.roomEnter_page {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  position: absolute;
+  left: 0%;
+  right: 50%;
+  top: 7.41%;
+  bottom: 7.41%;
+  border: none;
+}
+
+img {
+  position: absolute;
+  top: 7%;
+  left: 25%;
+}
+
+.roomInfo_form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  right: 0%;
+  top: 7.41%;
+  bottom: 7.41%;
+  padding-top: 100px;
+  border: none;
+}
+
+input {
+  width: 400px;
+  height: 30px;
+  border: 1.4783px solid rgba(11, 70, 84, 0.25);
+  margin-bottom: 15px;
+}
+
+label {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.enter_btn {
+  margin-top: 30px;
+  width: 408px;
+  height: 35px;
+  border: none;
+  background-color: #ffbe01;
+  border-radius: 6px;
+  box-shadow: 0px 2.9566px 2.9566px rgba(0, 0, 0, 0.25),
+    inset 0px 1.4783px 2.9566px rgba(255, 255, 255, 0.25),
+    inset 0px -1.4783px 2.9566px rgba(0, 0, 0, 0.25);
+}

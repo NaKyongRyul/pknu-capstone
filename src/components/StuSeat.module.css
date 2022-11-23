@@ -1,0 +1,29 @@
+.stuSeat {
+  width: 360px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.stuSeat_upper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stuNum {
+  padding-left: 5px;
+  padding-top: 2px;
+}
+
+.stuAtt {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.stuSeat_lower {
+  text-align: center;
+  margin-top: 60px;
+}

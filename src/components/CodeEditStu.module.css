@@ -1,0 +1,36 @@
+.codeEditStu_upper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 20px 10px 20px;
+}
+
+.editBtn {
+  width: 60px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #ffbe01;
+}
+
+.checkDiv {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  margin-left: 5px;
+}
+
+.output {
+  height: 200px;
+  border: 1px solid black;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.outputRes {
+  margin-left: 5px;
+}
