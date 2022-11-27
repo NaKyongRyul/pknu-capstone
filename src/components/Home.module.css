@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+.home_page {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 80px 200px 120px 150px;
+}
+
+.icon {
+  font-size: 3rem;
+  color: rgb(147 197 253);
+}
+.btns {
+}
+.loginBtn {
+  margin-right: 32px;
+  font-size: 24px;
+  border: 2px solid #d4e6fc;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  padding: 4px 16px;
+  color: #99d7e9;
+  font-weight: bold;
+}
+
+.registerBtn {
+  font-size: 24px;
+  border: 2px solid #d4e6fc;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  padding: 4px 16px;
+  color: #99d7e9;
+  font-weight: bold;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 150px;
+}
+.left_section {
+  width: 480px;
+}
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  width: 400px;
+  margin-bottom: 24px;
+}
+.content {
+  margin-bottom: 36px;
+}
+.startBtn {
+  font-size: 24px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  padding: 4px 16px;
+  background-color: #99d7e9;
+  color: white;
+  font-weight: bold;
+}
+
+.home_img {
+  width: 600px;
+  height: 363px;
+  margin-top: 200px;
+  margin-left: 350px;
+}

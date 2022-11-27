@@ -1,7 +1,9 @@
 import CodeEditor from "@uiw/react-textarea-code-editor";
 import React, { useState } from "react";
 import styles from "../components/CodeEditStu.module.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Button from "../components/Button";
 
 export default function CodeEditStu() {
   const [code, setCode] = React.useState(
@@ -13,19 +15,15 @@ export default function CodeEditStu() {
     setIsCheck((Check) => !Check);
     console.log(isCheck);
   };
-
-  const navigate = useNavigate();
-  const navigateToHome = () => {
-    navigate("/");
-  };
   return (
-    <div>
-      <div className={styles.codeEditStu_upper}>
+    <>
+      <Navbar>
+        {/* 현재 로그인한 학생의 이름을 받아온다 */}
         <span>학생 01 김강산님 환영합니다.</span>
-        <button className={styles.editBtn} onClick={navigateToHome}>
-          Exit
-        </button>
-      </div>
+        <Link to="/">
+          <Button name="Exit"></Button>
+        </Link>
+      </Navbar>
       <CodeEditor
         value={code}
         language="c"
@@ -33,7 +31,7 @@ export default function CodeEditStu() {
         onChange={(evn) => setCode(evn.target.value)}
         padding={15}
         style={{
-          height: "600px",
+          height: "500px",
           marginLeft: "20px",
           marginRight: "20px",
           fontSize: 12,
@@ -56,6 +54,6 @@ export default function CodeEditStu() {
           이곳은 코드 결과 출력 창입니다.
         </span>
       </div>
-    </div>
+    </>
   );
 }

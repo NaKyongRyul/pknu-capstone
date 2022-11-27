@@ -1,7 +1,9 @@
 import CodeEditor from "@uiw/react-textarea-code-editor";
 import React, { useState } from "react";
 import styles from "../components/CodeEditPro.module.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Button from "../components/Button";
 
 export default function CodeEditPro() {
   const [code, setCode] = React.useState(
@@ -13,19 +15,15 @@ export default function CodeEditPro() {
     setIsCheck((Check) => !Check);
     console.log(isCheck);
   };
-
-  const navigate = useNavigate();
-  const navigateToStuManage = () => {
-    navigate("/stuManage");
-  };
   return (
-    <div>
-      <div className={styles.codeEditPro_upper}>
+    <>
+      <Navbar>
+        {/* 현재 로그인한 교수의 이름과 이전 화면에서 클릭한 학생의 이름을 불러온다. */}
         <span>신인철 교수님 환영합니다. 학생 01 김강산님의 화면입니다.</span>
-        <button className={styles.editBtn} onClick={navigateToStuManage}>
-          Exit
-        </button>
-      </div>
+        <Link to="/">
+          <Button name="Exit"></Button>
+        </Link>
+      </Navbar>
       <CodeEditor
         value={code}
         language="c"
@@ -33,7 +31,7 @@ export default function CodeEditPro() {
         onChange={(evn) => setCode(evn.target.value)}
         padding={15}
         style={{
-          height: "600px",
+          height: "500px",
           marginLeft: "20px",
           marginRight: "20px",
           fontSize: 12,
@@ -56,6 +54,6 @@ export default function CodeEditPro() {
           이곳은 코드 결과 출력 창입니다.
         </span>
       </div>
-    </div>
+    </>
   );
 }
